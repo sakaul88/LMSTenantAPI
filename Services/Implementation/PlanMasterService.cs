@@ -1,0 +1,121 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using AutoMapper;
+using DeviceManager.Api.Data.Management;
+using DeviceManager.Api.Database;
+using DeviceManager.Api.Repository;
+using DeviceManager.Api.Services.Generic;
+using DeviceManager.Api.ViewModels;
+
+namespace DeviceManager.Api.Services
+{
+    public class PlanMasterService<T> : IPlanMasterService<PlanMasterViewModel>, IGenericService<PlanMasterViewModel>
+    {
+        private IGenericRepository<PlanMaster> GenericRepository;
+        private readonly IUnitOfWork unitOfWork;
+        private readonly IMapper mapper;
+        //private readonly IDeviceValidationService deviceValidationService;
+
+        /// <inheritdoc />
+        public PlanMasterService(
+            IUnitOfWork unitOfWork,
+            //IDeviceValidationService deviceValidationService,
+            IMapper mapper, IGenericRepository<PlanMaster> genericRepository)
+        {
+            this.unitOfWork = unitOfWork;
+            //this.deviceValidationService = deviceValidationService;
+            this.mapper = mapper;
+            GenericRepository = genericRepository;
+        }
+
+        async Task<IEnumerable<PlanMasterViewModel>> IGenericService<PlanMasterViewModel>.GetAll()
+        {
+            IList<PlanMasterViewModel> models = new List<PlanMasterViewModel>();
+            var getAllgs = await GenericRepository.GetAll();
+            foreach (var getAll in getAllgs)
+            {
+                models.Add(mapper.Map<PlanMaster, PlanMasterViewModel>(getAll));
+            }
+            return models.AsEnumerable();
+        }
+
+        public async Task<IEnumerable<PlanMasterViewModel>> GetAll(int page, int pageSize)
+        {
+            IList<PlanMasterViewModel> models = new List<PlanMasterViewModel>();
+            var getAllByPages = await GenericRepository.GetAll(page, pageSize);
+            foreach (var getAllByPage in getAllByPages)
+            {
+                models.Add(mapper.Map<PlanMaster, PlanMasterViewModel>(getAllByPage));
+            }
+            return models.AsEnumerable();
+        }
+
+        public async Task<IEnumerable<PlanMasterViewModel>> GetAll(string include)
+        {
+            IList<PlanMasterViewModel> models = new List<PlanMasterViewModel>();
+            var getAllIncludes = await GenericRepository.GetAll();
+            foreach (var getAllInclude in getAllIncludes)
+            {
+                models.Add(mapper.Map<PlanMaster, PlanMasterViewModel>(getAllInclude));
+            }
+            return models.AsEnumerable();
+        }
+
+        public async Task<PlanMasterViewModel> GetById(int id)
+        {
+            var getId = await GenericRepository.GetById(id);
+            var model = mapper.Map<PlanMaster, PlanMasterViewModel>(getId);
+            return model;
+        }
+
+        public PlanMasterViewModel Create(PlanMasterViewModel model)
+        {
+
+            var insertModel = mapper.Map<PlanMasterViewModel, PlanMaster>(model);
+            var modelI = GenericRepository.Create(insertModel);
+            return mapper.Map<PlanMaster, PlanMasterViewModel>(modelI);
+
+        }
+
+        public void Update(int id, PlanMasterViewModel model)
+        {
+            var updateModel = mapper.Map<PlanMasterViewModel, PlanMaster>(model);
+            GenericRepository.Update(id, updateModel);
+        }
+
+        public void Delete(int id)
+        {
+            var deleteModel = Task.Run(() => GenericRepository.GetById(id)).Result;
+            deleteModel.IsActive = false;
+            deleteModel.IsDeleted = true;
+            GenericRepository.Update(deleteModel.Id, deleteModel);
+        }
+
+        public async Task<IEnumerable<PlanMasterViewModel>> GetAllWithData(int LoggedInUserId)
+        {
+            IList<PlanMasterViewModel> models = new List<PlanMasterViewModel>();
+            var dbEntities = await GenericRepository.GetAll("pleaseAddFk");
+            var dbEntity = dbEntities.FirstOrDefault(x => x.Id == LoggedInUserId);
+            if (dbEntity != null)
+            {
+                var approvalGetAll = mapper.Map<PlanMaster, PlanMasterViewModel>(dbEntity);
+                models.Add(approvalGetAll);
+            }
+            return models.AsEnumerable();
+        }
+
+        async Task<IEnumerable<PlanMasterViewModel>> IGenericService<PlanMasterViewModel>.GetByAny(int value)
+        {
+            IList<PlanMasterViewModel> models = new List<PlanMasterViewModel>();
+            var getByAnyIds = await GenericRepository.FindBy(x => x.Id == value);
+
+            foreach (var getByAnyId in getByAnyIds)
+            {
+                models.Add(mapper.Map<PlanMaster, PlanMasterViewModel>(getByAnyId));
+            }
+            return models.AsEnumerable();
+        }
+    }
+}

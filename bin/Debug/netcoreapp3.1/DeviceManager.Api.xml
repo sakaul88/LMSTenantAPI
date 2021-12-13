@@ -1,0 +1,1396 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DeviceManager.Api</name>
+    </assembly>
+    <members>
+        <member name="T:DeviceManager.Api.ActionFilters.ValidateModelStateAttribute">
+            <summary>
+            Intriduces Model state auto validation to reduce code duplication
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.Filters.ActionFilterAttribute" />
+        </member>
+        <member name="M:DeviceManager.Api.ActionFilters.ValidateModelStateAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            Validates Model automaticaly 
+            </summary>
+            <param name="context"></param>
+            <inheritdoc />
+        </member>
+        <member name="T:DeviceManager.Api.ActionFilters.TenantHeaderOperationFilter">
+            <summary>
+            Adds Tenant Id field to API endpoints
+            </summary>
+            <seealso cref="T:Swashbuckle.AspNetCore.SwaggerGen.IOperationFilter" />
+        </member>
+        <member name="M:DeviceManager.Api.ActionFilters.TenantHeaderOperationFilter.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            Applies the specified operation.
+            </summary>
+            <param name="operation">The operation.</param>
+            <param name="context">The context.</param>
+        </member>
+        <member name="T:DeviceManager.Api.ActionFilters.ValidateActionParametersAttribute">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.ActionFilters.ValidateActionParametersAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <inheritdoc />
+        </member>
+        <member name="P:DeviceManager.Api.Common.AuthUser.isAuth">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DeviceManager.Api.Common.AuthUser.uid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DeviceManager.Api.Common.AuthUser.roles">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DeviceManager.Api.Common.AuthUser.ref1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:DeviceManager.Api.Configuration.ApiVersioningConfiguration">
+            <summary>
+            Swagger API documentation components start-up configuration
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Configuration.ApiVersioningConfiguration.ConfigureService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configures the service.
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+        <member name="T:DeviceManager.Api.Configuration.ConfigurationOptions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Configuration.ConfigurationOptions.ConfigureService(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfigurationRoot)">
+            <summary>
+            Configures the service.
+            </summary>
+            <param name="services">The services.</param>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="T:DeviceManager.Api.Configuration.DatabaseTypes.IDatabaseType">
+            <summary>
+            All database connection types should implement this interface to connect via entity framework core.
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Configuration.DatabaseTypes.IDatabaseType.EnableDatabase(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Options.IOptions{DeviceManager.Api.Configuration.Settings.ConnectionSettings})">
+            <summary>
+            Enables database type in the service collection. 
+            </summary>
+            <param name="services"></param>
+            <param name="connectionOptions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.Api.Configuration.DatabaseTypes.IDatabaseType.GetContextBuilder(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder,Microsoft.Extensions.Options.IOptions{DeviceManager.Api.Configuration.Settings.ConnectionSettings},System.String)">
+            <summary>
+            Based on the database context builder instance is created
+            </summary>
+            <param name="optionsBuilder">Context builder</param>
+            <param name="connectionOptions">Configured connection settings</param>
+            <param name="connectionString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.Api.Configuration.DatabaseTypes.IDatabaseType.GetConnectionBuilder(System.String)">
+            <summary>
+            Based on the database type and tenant id connection object is built
+            </summary>
+            <param name="connectionString">New connection string</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.Api.Configuration.DatabaseTypes.IDatabaseType.SetConnectionString``1(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder{``0},System.String)">
+            <summary>
+            updates with new connection string
+            </summary>
+            <typeparam name="TContext"></typeparam>
+            <param name="contextOptionsBuilder"></param>
+            <param name="connectionString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DeviceManager.Api.Configuration.DatabaseTypes.MsSql">
+            <inherit/>
+        </member>
+        <member name="M:DeviceManager.Api.Configuration.DatabaseTypes.MsSql.EnableDatabase(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Options.IOptions{DeviceManager.Api.Configuration.Settings.ConnectionSettings})">
+            <inherit/>
+        </member>
+        <member name="M:DeviceManager.Api.Configuration.DatabaseTypes.MsSql.GetConnectionBuilder(System.String)">
+            <inherit/>
+        </member>
+        <member name="M:DeviceManager.Api.Configuration.DatabaseTypes.MsSql.GetContextBuilder(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder,Microsoft.Extensions.Options.IOptions{DeviceManager.Api.Configuration.Settings.ConnectionSettings},System.String)">
+            <inherit/>
+        </member>
+        <member name="M:DeviceManager.Api.Configuration.DatabaseTypes.MsSql.SetConnectionString``1(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder{``0},System.String)">
+            <inherit/>
+        </member>
+        <member name="M:DeviceManager.Api.Configuration.DatabaseTypes.MySql.GetConnectionBuilder(System.String)">
+            <inherit/>
+        </member>
+        <member name="M:DeviceManager.Api.Configuration.DatabaseTypes.MySql.GetContextBuilder(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder,Microsoft.Extensions.Options.IOptions{DeviceManager.Api.Configuration.Settings.ConnectionSettings},System.String)">
+            <inherit/>
+        </member>
+        <member name="M:DeviceManager.Api.Configuration.DatabaseTypes.MySql.SetConnectionString``1(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder{``0},System.String)">
+            <inherit/>
+        </member>
+        <member name="T:DeviceManager.Api.Configuration.DatabaseTypes.Postgres">
+            <inherit/>
+        </member>
+        <member name="M:DeviceManager.Api.Configuration.DatabaseTypes.Postgres.EnableDatabase(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Options.IOptions{DeviceManager.Api.Configuration.Settings.ConnectionSettings})">
+            <inherit/>
+        </member>
+        <member name="M:DeviceManager.Api.Configuration.DatabaseTypes.Postgres.GetConnectionBuilder(System.String)">
+            <inherit/>
+        </member>
+        <member name="M:DeviceManager.Api.Configuration.DatabaseTypes.Postgres.GetContextBuilder(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder,Microsoft.Extensions.Options.IOptions{DeviceManager.Api.Configuration.Settings.ConnectionSettings},System.String)">
+            <inherit/>
+        </member>
+        <member name="M:DeviceManager.Api.Configuration.DatabaseTypes.Postgres.SetConnectionString``1(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder{``0},System.String)">
+            <inherit/>
+        </member>
+        <member name="T:DeviceManager.Api.Configuration.EntityFrameworkConfiguration">
+            <summary>
+            Configurations related to entity framework
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Configuration.EntityFrameworkConfiguration.ConfigureService(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfigurationRoot)">
+            <summary>
+            Configures the service.
+            </summary>
+            <param name="services">The services.</param>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Configuration.EntityFrameworkConfiguration.GetMigrationInformation``2(Microsoft.EntityFrameworkCore.Infrastructure.RelationalDbContextOptionsBuilder{``0,``1})">
+            <summary>
+             Configures the assembly where migrations are maintained for this context.
+             <see href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/migrations/index" /> for migrations
+             <see href="https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet"/> for command line tools
+            </summary>
+            <typeparam name="TBuilder"></typeparam>
+            <typeparam name="TExtension"></typeparam>
+            <param name="builder"></param>
+            <returns>Migrations configured builder</returns>
+        </member>
+        <member name="M:DeviceManager.Api.Configuration.EntityFrameworkConfiguration.RegisterDatabaseType(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Options.IOptions{DeviceManager.Api.Configuration.Settings.ConnectionSettings})">
+            <summary>
+            Inject database settings instance based on the connection string
+            </summary>
+            <param name="services"></param>
+            <param name="connectionOptions"></param>
+        </member>
+        <member name="T:DeviceManager.Api.Configuration.IocContainerConfiguration">
+            <summary>
+            IOC contaner start-up configuration
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Configuration.IocContainerConfiguration.ConfigureService(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfigurationRoot)">
+            <summary>
+            Configures the service.
+            </summary>
+            <param name="services">The services.</param>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="T:DeviceManager.Api.Configuration.Settings.ConnectionSettings">
+            <summary>
+            Connection configuration options
+            </summary>
+        </member>
+        <member name="P:DeviceManager.Api.Configuration.Settings.ConnectionSettings.DatabaseType">
+            <summary>
+            Gets or sets the database type (No sql or MsSql)
+            </summary>
+        </member>
+        <member name="P:DeviceManager.Api.Configuration.Settings.ConnectionSettings.DefaultConnection">
+            <summary>
+            Gets or sets the default connection.
+            </summary>
+            <value>
+            The default connection.
+            </value>
+        </member>
+        <member name="P:DeviceManager.Api.Configuration.Settings.ConnectionSettings.TenantDbConnection">
+            <summary>
+            Connection for Master DB
+            </summary>
+        </member>
+        <member name="T:DeviceManager.Api.Configuration.Settings.DatabaseType">
+            <summary>
+            Gets or sets the database type (No sql or Sql express)
+            </summary>
+        </member>
+        <member name="F:DeviceManager.Api.Configuration.Settings.DatabaseType.MsSql">
+            <summary>
+            MsSql Database type
+            </summary>
+        </member>
+        <member name="F:DeviceManager.Api.Configuration.Settings.DatabaseType.Postgres">
+            <summary>
+            Postgres Database type
+            </summary>
+        </member>
+        <member name="F:DeviceManager.Api.Configuration.Settings.DatabaseType.MySql">
+            <summary>
+            Postgres Database type
+            </summary>
+        </member>
+        <member name="T:DeviceManager.Api.Configuration.SwaggerConfiguration">
+            <summary>
+            Swagger API documentation components start-up configuration
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Configuration.SwaggerConfiguration.ConfigureService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configures the service.
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Configuration.SwaggerConfiguration.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Configures the specified application.
+            </summary>
+            <param name="app">The application.</param>
+        </member>
+        <member name="T:DeviceManager.Api.Controllers.BaseController`1">
+            <summary>
+            Base api controller all api controllers should inherit from this controller
+            </summary>
+            <typeparam name="TViewModel">Type of the view model</typeparam>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.BaseController`1.#ctor(DeviceManager.Api.Services.Generic.IGenericService{`0})">
+            <summary>
+            TODO: Pass base validation service and common CRUD operation in the base controller
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.BaseController`1.GetAll">
+            <summary>
+            Gets all the entities
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.BaseController`1.GetByAny(System.Int32)">
+            <summary>
+            Gets all the entities
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.BaseController`1.GetAllWithData(System.Nullable{System.Int32})">
+            <summary>
+            Gets all the entities
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.BaseController`1.Get(System.Int32,System.Int32)">
+            <summary>
+            Gets teh paged result for the entity requested
+            </summary>
+            <param name="page"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.BaseController`1.GetById(System.Int32)">
+            <summary>
+            Gets the entity by Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.BaseController`1.Post(`0)">
+            <summary>
+            Inserts the entity
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.BaseController`1.Put(System.Int32,`0)">
+            <summary>
+            Updates the entity
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.BaseController`1.Delete(System.Int32)">
+            <summary>
+            Deletes the entity
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.CertificateMasterController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.CertificateMasterViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="T:DeviceManager.Api.Controllers.CertificateMasterController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.CourseAttachmentController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.CourseAttachmentViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.CourseCertificateMappingController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.CourseCertificateMappingViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.CourseDetailsController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.CourseDetailsViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.CourseMasterController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.CourseMasterViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.CoursePricingController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.CoursePricingViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.CredentialDetailsController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.CredentialDetailsViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="T:DeviceManager.Api.Controllers.DetailStructureInputController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.DetailStructureInputController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.DetailStructureInputViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.FormGridMasterController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.FormGridMasterViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="T:DeviceManager.Api.Controllers.FormGridMasterController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="T:DeviceManager.Api.Controllers.FormMasterController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.FormMasterController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.FormMasterViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+            
+        </member>
+        <member name="T:DeviceManager.Api.Controllers.GetFormDetailsController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.GetFormDetailsController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.Data.Views.GetFormDetailsViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="T:DeviceManager.Api.Controllers.GetFormDetailsController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="T:DeviceManager.Api.Controllers.GetUserAccessFormsController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.GetUserAccessFormsController.#ctor(DeviceManager.Api.Services.Interfaces.IUserManagerService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DeviceManager.Api.Controllers.GetUserAccessFormsController"/> class.
+            </summary>
+            <param name="userManagerService"></param>
+            <param name="tenantConnectionService"></param>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.GetUserAccessFormsController.GetAllForms">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.GetUserAccessFormsController.UserGridConfigurationByAny(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="formId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.ItemTypeMasterController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.ItemTypeMasterViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.LevelMasterController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.LevelMasterViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="T:DeviceManager.Api.Controllers.MastersStructureInputController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.MastersStructureInputController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.MastersStructureInputViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.PlanCourseMappingController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.PlanCourseMappingViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.PlanMasterController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.PlanMasterViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="T:DeviceManager.Api.Controllers.ProfileFormMaintenanceController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.ProfileFormMaintenanceController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.ProfileFormMaintenanceViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="T:DeviceManager.Api.Controllers.ProfileMasterController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.ProfileMasterController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.ProfileMasterViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.RatingMasterController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.RatingMasterViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.ScheduleMasterController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.ScheduleMasterViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="T:DeviceManager.Api.Controllers.TabFormProfileMaintenananceController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.TabFormProfileMaintenananceController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.TabFormProfileMaintenananceViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.TemplateFieldMappingController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.TemplateFieldMappingViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.TemplateFieldsController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.TemplateFieldsViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.TemplateMasterController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.TemplateMasterViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.TenantMasterController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.TenantMasterViewModel},DeviceManager.Api.Services.ITenantMasterService{DeviceManager.Api.ViewModels.TenantMasterViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.UserCommentsController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.UserCommentsViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.UserGridConfigurationController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.UserGridConfigurationViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="T:DeviceManager.Api.Controllers.UserGridConfigurationController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="T:DeviceManager.Api.Controllers.UserMasterController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.UserMasterController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.UserMasterViewModel},DeviceManager.Api.Services.IUserMasterService{DeviceManager.Api.ViewModels.UserMasterViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="T:DeviceManager.Api.Controllers.UserMasterController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.UserMasterController.UpdateLoginRequest(DeviceManager.Api.Common.DTO.LoginApproval.LoginUpdateRequest)">
+            <summary>
+             Approve or Reject Login request - Approve = 1, Reject = 2, Unlock = 3, ResetPassword=4
+            </summary>
+            <param name="userMasterIds"></param>
+            <param name="loginApprovalReq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.UserPlanMappingController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.UserPlanMappingViewModel})">
+            <summary>
+            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            </summary>
+            <param name="service">The device service.</param>
+        </member>
+        <member name="T:DeviceManager.Api.Data.DeviceContext">
+            <summary>
+            The device DB (entity framework's) context
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Data.DeviceContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{DeviceManager.Api.Data.DeviceContext})">
+            <summary>
+            Initializes a new instance of the <see cref="T:DeviceManager.Api.Data.DeviceContext"/> class.
+            </summary>
+            <param name="options">The options.</param>
+        </member>
+        <member name="T:DeviceManager.Api.Data.IDbContext">
+            <summary>
+            Interface for the Device EF Context
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Data.IDbContext.SaveChanges">
+            <summary>
+                Saves all changes made in this context to the database.
+            </summary>
+            <remarks>
+                This method will automatically call <see cref="M:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.DetectChanges" /> to discover any
+                changes to entity instances before saving to the underlying database. This can be disabled via
+                <see cref="P:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AutoDetectChangesEnabled" />.
+            </remarks>
+            <returns>
+                The number of state entries written to the database.
+            </returns>
+        </member>
+        <member name="M:DeviceManager.Api.Data.IDbContext.SaveChanges(System.Boolean)">
+            <summary>
+                Saves all changes made in this context to the database.
+            </summary>
+            <param name="acceptAllChangesOnSuccess">
+                Indicates whether <see cref="M:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AcceptAllChanges" /> is called after the changes have
+                been sent successfully to the database.
+            </param>
+            <remarks>
+                This method will automatically call <see cref="M:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.DetectChanges" /> to discover any
+                changes to entity instances before saving to the underlying database. This can be disabled via
+                <see cref="P:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AutoDetectChangesEnabled" />.
+            </remarks>
+            <returns>
+                The number of state entries written to the database.
+            </returns>
+        </member>
+        <member name="M:DeviceManager.Api.Data.IDbContext.SaveChangesAsync(System.Threading.CancellationToken)">
+            <summary>
+                Asynchronously saves all changes made in this context to the database.
+            </summary>
+            <remarks>
+                <para>
+                    This method will automatically call <see cref="M:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.DetectChanges" /> to discover any
+                    changes to entity instances before saving to the underlying database. This can be disabled via
+                    <see cref="P:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AutoDetectChangesEnabled" />.
+                </para>
+                <para>
+                    Multiple active operations on the same context instance are not supported.  Use 'await' to ensure
+                    that any asynchronous operations have completed before calling another method on this context.
+                </para>
+            </remarks>
+            <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" /> to observe while waiting for the task to complete.</param>
+            <returns>
+                A task that represents the asynchronous save operation. The task result contains the
+                number of state entries written to the database.
+            </returns>
+        </member>
+        <member name="M:DeviceManager.Api.Data.IDbContext.SaveChangesAsync(System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+                Asynchronously saves all changes made in this context to the database.
+            </summary>
+            <param name="acceptAllChangesOnSuccess">
+                Indicates whether <see cref="M:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AcceptAllChanges" /> is called after the changes have
+                been sent successfully to the database.
+            </param>
+            <remarks>
+                <para>
+                    This method will automatically call <see cref="M:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.DetectChanges" /> to discover any
+                    changes to entity instances before saving to the underlying database. This can be disabled via
+                    <see cref="P:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AutoDetectChangesEnabled" />.
+                </para>
+                <para>
+                    Multiple active operations on the same context instance are not supported.  Use 'await' to ensure
+                    that any asynchronous operations have completed before calling another method on this context.
+                </para>
+            </remarks>
+            <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" /> to observe while waiting for the task to complete.</param>
+            <returns>
+                A task that represents the asynchronous save operation. The task result contains the
+                number of state entries written to the database.
+            </returns>
+        </member>
+        <member name="M:DeviceManager.Api.Data.IDbContext.Dispose">
+            <summary>
+                Releases the allocated resources for this context.
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Data.IDbContext.Set``1">
+            <summary>
+                Creates a <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1" /> that can be used to query and save instances of <typeparamref name="TEntity" />.
+            </summary>
+            <typeparam name="TEntity"> The type of entity for which a set should be returned. </typeparam>
+            <returns> A set for the given entity type. </returns>
+        </member>
+        <member name="T:DeviceManager.Api.Data.Management.ContextFactory">
+            <summary>
+            Entity Framework context service
+            (Switches the db context according to tenant id field)
+            </summary>
+            <seealso cref="T:DeviceManager.Api.Data.Management.IContextFactory"/>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.ContextFactory.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor,Microsoft.Extensions.Options.IOptions{DeviceManager.Api.Configuration.Settings.ConnectionSettings},DeviceManager.Api.Data.Management.IDataBaseManager,DeviceManager.Api.Configuration.DatabaseTypes.IDatabaseType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DeviceManager.Api.Data.Management.ContextFactory"/> class.
+            </summary>
+            <param name="httpContentAccessor">The HTTP content accessor.</param>
+            <param name="connectionOptions">The connection options.</param>
+            <param name="dataBaseManager">The data base manager.</param>
+            <param name="databaseType"></param>
+        </member>
+        <member name="P:DeviceManager.Api.Data.Management.ContextFactory.DbContext">
+            <inheritdoc />
+        </member>
+        <member name="P:DeviceManager.Api.Data.Management.ContextFactory.TenantId">
+            <summary>
+            Gets tenant id from HTTP header
+            </summary>
+            <value>
+            The tenant identifier.
+            </value>
+            <exception cref="T:System.ArgumentNullException">
+            httpContext
+            or
+            tenantId
+            </exception>
+        </member>
+        <member name="T:DeviceManager.Api.Data.Management.DataBaseManager">
+            <summary>
+            Contains all tenants database mappings and options
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.DataBaseManager.GetDataBaseName(System.String,System.Int32)">
+            <summary>
+            Gets the name of the data base.
+            </summary>
+            <param name="masterDbConnection"></param>
+            <param name="tenantId">The tenant identifier.</param>
+            <returns>db name</returns>
+        </member>
+        <member name="T:DeviceManager.Api.Data.Management.IContextFactory">
+            <summary>
+            Context factory interface
+            </summary>
+        </member>
+        <member name="P:DeviceManager.Api.Data.Management.IContextFactory.DbContext">
+            <summary>
+            Gets the database context.
+            </summary>
+            <value>
+            The database context.
+            </value>
+        </member>
+        <member name="T:DeviceManager.Api.Data.Management.IDataBaseManager">
+            <summary>
+            Multitenant database manager
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.IDataBaseManager.GetDataBaseName(System.String,System.Int32)">
+            <summary>
+            Gets the name of the data base.
+            </summary>
+            <param name="masterDbConnection"></param>
+            <param name="tenantId">The tenant identifier.</param>
+            <returns>db name</returns>
+        </member>
+        <member name="T:DeviceManager.Api.Data.Management.IRepository`1">
+            <summary>
+            Interface for generic repository, contains CRUD operation of EF entity
+            </summary>
+            <typeparam name="T">EF entity</typeparam>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.IRepository`1.Get``1(``0)">
+            <summary>
+            Gets the specified identifier.
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <param name="id">The identifier.</param>
+            <returns>Entity</returns>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.IRepository`1.GetAsync``1(``0)">
+            <summary>
+            Gets the specified identifier. Asynchronous version.
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <param name="id">The identifier.</param>
+            <returns>Task Entity</returns>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.IRepository`1.Get(System.Object[])">
+            <summary>
+            Gets an entity by the keys specified in <paramref name="keyValues"/>
+            </summary>
+            <param name="keyValues">Composite Primary Key Identifiers</param>
+            <returns>The requested Entity</returns>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.IRepository`1.FindBy(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Generic find by predicate
+            </summary>
+            <param name="predicate">Query predicate</param>
+            <returns>Entity</returns>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.IRepository`1.FindBy(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.String)">
+            <summary>
+            Generic find by predicate and option to include child entity
+            </summary>
+            <param name="predicate">The predicate.</param>
+            <param name="include">The include sub-entity.</param>
+            <returns>Queryable</returns>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.IRepository`1.GetAll">
+            <summary>
+            Gets all.
+            </summary>
+            <returns>List of entities</returns>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.IRepository`1.GetAll(System.Int32,System.Int32)">
+            <summary>
+            Gets all. With data pagination.
+            </summary>
+            <param name="page">The page.</param>
+            <param name="pageCount">The page count.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.IRepository`1.GetAll(System.String)">
+            <summary>
+            Gets all and offers to include a related table
+            </summary>
+            <param name="include">Te sub.entity to include</param>
+            <returns>List of entities</returns>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.IRepository`1.GetAll(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Gets all and offers to include 2 related tables
+            </summary>
+            <param name="include">The sub.entity to include</param>
+            <param name="include2">The second sub.entity to include</param>
+            <returns>List of entities</returns>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.IRepository`1.GetAllWithInclude(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Gets all and offers to include 2 related tables
+            </summary>
+            <param name="include">The sub.entity to include</param>
+            <param name="include2">The second sub.entity to include</param>
+            <returns>List of entities</returns>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.IRepository`1.Add(`0)">
+            <summary>
+            Adds the specified entity.
+            </summary>
+            <param name="entity">The entity.</param>
+            <returns>The Entity's state</returns>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.IRepository`1.Delete(`0)">
+            <summary>
+            Deletes the specified <paramref name="entity"/>
+            </summary>
+            <param name="entity">The entity to delete</param>
+            <returns>The Entity's state</returns>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.IRepository`1.Exists(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Checks whether a entity matching the <paramref name="predicate"/> exists
+            </summary>
+            <param name="predicate">The predicate to filter on</param>
+            <returns>Whether an entity matching the <paramref name="predicate"/> exists</returns>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.IRepository`1.Update(`0)">
+            <summary>
+            Updates the specified entity.
+            </summary>
+            <param name="entity">The entity.</param>
+            <returns>The Entity's state</returns>
+        </member>
+        <member name="T:DeviceManager.Api.Data.Management.IUnitOfWork">
+            <summary>
+            Contains functions to manipulate EF transactions
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.IUnitOfWork.GetRepository``1">
+            <summary>
+            Gets the repository.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <returns>Repository</returns>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.IUnitOfWork.Commit">
+            <summary>
+            Saves all pending changes
+            </summary>
+            <returns>The number of objects in an Added, Modified, or Deleted state</returns>
+        </member>
+        <member name="T:DeviceManager.Api.Data.Management.Repository`1">
+            <summary>
+            Generic repository, contains CRUD operation of EF entity
+            </summary>
+            <typeparam name="T">Entity type</typeparam>
+        </member>
+        <member name="F:DeviceManager.Api.Data.Management.Repository`1.context">
+            <summary>
+            EF data base context
+            </summary>
+        </member>
+        <member name="F:DeviceManager.Api.Data.Management.Repository`1.dbSet">
+            <summary>
+            Used to query and save instances of
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.Repository`1.#ctor(DeviceManager.Api.Data.IDbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DeviceManager.Api.Data.Management.Repository`1"/> class.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.Repository`1.Add(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.Repository`1.Get``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.Repository`1.GetAsync``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.Repository`1.Get(System.Object[])">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.Repository`1.FindBy(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.Repository`1.FindBy(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.Repository`1.GetAll">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.Repository`1.GetAll(System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.Repository`1.GetAll(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.Repository`1.GetAll(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.Repository`1.Exists(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.Repository`1.Delete(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.Repository`1.Update(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.Repository`1.BulkUpdate(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Update Multiple entity 
+            </summary>
+            <param name="entities"></param>
+        </member>
+        <member name="T:DeviceManager.Api.Data.Management.UnitOfWork">
+            <summary>
+            The Entity Framework implementation of IUnitOfWork
+            </summary>
+        </member>
+        <member name="F:DeviceManager.Api.Data.Management.UnitOfWork.dbContext">
+            <summary>
+            The DbContext
+            </summary>
+        </member>
+        <member name="F:DeviceManager.Api.Data.Management.UnitOfWork.repositories">
+            <summary>
+            The repositories
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.UnitOfWork.#ctor(DeviceManager.Api.Data.Management.IContextFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DeviceManager.Api.Data.Management.UnitOfWork" /> class.
+            </summary>
+            <param name="contextFactory">The context factory.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.UnitOfWork.GetRepository``1">
+            <summary>
+            Gets the repository.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.UnitOfWork.Commit">
+            <summary>
+            Saves all pending changes
+            </summary>
+            <returns>The number of objects in an Added, Modified, or Deleted state</returns>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.UnitOfWork.Dispose">
+            <summary>
+            Disposes the current object
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Data.Management.UnitOfWork.Dispose(System.Boolean)">
+            <summary>
+            Disposes all external resources.
+            </summary>
+            <param name="disposing">The dispose indicator.</param>
+        </member>
+        <member name="T:DeviceManager.Api.Helpers.Constants">
+            <summary>
+            All hardcoded strings can be read as properties in the application
+            </summary>
+        </member>
+        <member name="F:DeviceManager.Api.Helpers.Constants.DefaultConnection">
+            <summary>
+            Name of the connection string
+            </summary>
+        </member>
+        <member name="F:DeviceManager.Api.Helpers.Constants.TenantDbConnection">
+            <summary>
+            Name of the connection string
+            </summary>
+        </member>
+        <member name="F:DeviceManager.Api.Helpers.Constants.ConnectionStrings">
+            <summary>
+            Connection string section
+            </summary>
+        </member>
+        <member name="F:DeviceManager.Api.Helpers.Constants.Database">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:DeviceManager.Api.Helpers.Constants.TenantId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:DeviceManager.Api.Helpers.Constants.PMSDB">
+            <summary>
+            Name of the device database tenant 1
+            </summary>
+        </member>
+        <member name="F:DeviceManager.Api.Helpers.Constants.DeviceDbTenant2">
+            <summary>
+            Name of the device database tenant 2
+            </summary>
+        </member>
+        <member name="F:DeviceManager.Api.Helpers.Constants.Tenant1Guid">
+            <summary>
+            Guid of the first tenant
+            </summary>
+        </member>
+        <member name="F:DeviceManager.Api.Helpers.Constants.Tenant2Guid">
+            <summary>
+            Guid of the first tenant
+            </summary>
+        </member>
+        <member name="F:DeviceManager.Api.Helpers.Constants.JWTConfigSettings">
+            <summary>
+            Guid of the first tenant
+            </summary>
+        </member>
+        <member name="T:DeviceManager.Api.Mappings.MapsProfile">
+            <summary>
+            Contains objects mapping
+            </summary>
+            <seealso cref="T:AutoMapper.Configuration.MapperConfigurationExpression" />
+        </member>
+        <member name="M:DeviceManager.Api.Mappings.MapsProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DeviceManager.Api.Mappings.MapsProfile"/> class
+            </summary>
+        </member>
+        <member name="T:DeviceManager.Api.Middlewares.ExceptionHandlerMiddleware">
+            <summary>
+            Central error/exception handler Middleware
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Middlewares.ExceptionHandlerMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DeviceManager.Api.Middlewares.ExceptionHandlerMiddleware"/> class.
+            </summary>
+            <param name="next">The next.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Middlewares.ExceptionHandlerMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Invokes the specified context.
+            </summary>
+            <param name="context">The context.</param>
+            <returns></returns>
+        </member>
+        <member name="T:DeviceManager.Api.Migrations.DatabaseInitialise">
+            <summary>
+            migration data
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Migrations.DatabaseInitialise.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Migrations.DatabaseInitialise.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Migrations.DatabaseInitialise.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="T:DeviceManager.Api.Program">
+            <summary>
+            Starting or hosting class of the applcation 
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Program.Main(System.String[])">
+            <summary>
+            Entry method for dotnet core hosting
+            </summary>
+            <param name="args">Command line parameters</param>
+        </member>
+        <member name="M:DeviceManager.Api.Repository.GenericRepository`1.BulkUpdate(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Bulk updates of entities
+            </summary>
+            <param name="entities"></param>
+        </member>
+        <member name="T:DeviceManager.Api.Repository.IGenericRepository`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:DeviceManager.Api.Repository.IGenericRepository`1.GetAll(System.String)">
+            <summary>
+            Gets all and offers to include a related table
+            </summary>
+            <param name="include">Te sub.entity to include</param>
+            <returns>List of entities</returns>
+        </member>
+        <member name="M:DeviceManager.Api.Repository.IGenericRepository`1.GetAll">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.Api.Repository.IGenericRepository`1.GetAll(System.Int32,System.Int32)">
+            <summary>
+            Gets the list of devices.
+            </summary>
+            <param name="page">The page.</param>
+            <param name="pageSize">Size of the page.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.Api.Repository.IGenericRepository`1.GetById(System.Int32)">
+            <summary>
+            Gets the device by identifier.
+            </summary>
+            <param name="id">The device identifier.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Repository.IGenericRepository`1.Create(`0)">
+            <summary>
+            Creates the device.
+            </summary>
+            <param name="entity">The device view model.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Repository.IGenericRepository`1.Update(System.Int32,`0)">
+            <summary>
+            Updates the device.
+            </summary>
+            <param name="id">The device identifier.</param>
+            <param name="entity">The device view model.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Repository.IGenericRepository`1.Delete(`0)">
+            <summary>
+            Updates the device.
+            </summary>
+            <param name="entity">The device view model.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Repository.IGenericRepository`1.BulkUpdate(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Update the entity in bulk
+            </summary>
+            <param name="entities"></param>
+        </member>
+        <member name="M:DeviceManager.Api.Services.CertificateMasterService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.CertificateMaster})">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.CourseAttachmentService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.CourseAttachment})">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.Implementation.CourseCertificateMappingService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.CourseCertificateMapping})">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.Implementation.FormGridMasterService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.FormGridMaster})">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.Implementation.GetFormDetailsService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Data.Views.GetFormDetails})">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.Implementation.ScheduleMasterService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.ScheduleMaster})">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.Implementation.UserGridConfigurationService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.UserGridConfiguration})">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.CourseDetailsService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.CourseDetails})">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.CourseMasterService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.CourseMaster})">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.CoursePricingService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.CoursePricing})">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.CredentialDetailsService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.CredentialDetails})">
+            <inheritdoc />
+        </member>
+        <member name="T:DeviceManager.Api.Services.DetailStructureInputService`1">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.DetailStructureInputService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.DetailStructureInput})">
+            <inheritdoc />
+        </member>
+        <member name="T:DeviceManager.Api.Services.FormMasterService`1">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.FormMasterService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.FormMaster})">
+            <inheritdoc />
+        </member>
+        <member name="T:DeviceManager.Api.Services.GetUserAccessFormsService`1">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.GetUserAccessFormsService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Data.Views.GetUserAccessForms})">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.ItemTypeMasterService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.ItemTypeMaster})">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.LevelMasterService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.LevelMaster})">
+            <inheritdoc />
+        </member>
+        <member name="T:DeviceManager.Api.Services.MastersStructureInputService`1">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.MastersStructureInputService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.MastersStructureInput})">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.PlanCourseMappingService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.PlanCourseMapping})">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.PlanMasterService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.PlanMaster})">
+            <inheritdoc />
+        </member>
+        <member name="T:DeviceManager.Api.Services.ProfileFormMaintenanceService`1">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.ProfileFormMaintenanceService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.ProfileFormMaintenance})">
+            <inheritdoc />
+        </member>
+        <member name="T:DeviceManager.Api.Services.ProfileMasterService`1">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.ProfileMasterService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.ProfileMaster})">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.RatingMasterService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.RatingMaster})">
+            <inheritdoc />
+        </member>
+        <member name="T:DeviceManager.Api.Services.TabFormProfileMaintenananceService`1">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.TabFormProfileMaintenananceService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.TabFormProfileMaintenanance})">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.TemplateFieldMappingService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.TemplateFieldMapping})">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.TemplateFieldsService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.TemplateFields})">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.TemplateMasterService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.TemplateMaster})">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.TenantMasterService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,Microsoft.Extensions.Options.IOptions{DeviceManager.Api.Configuration.Settings.ConnectionSettings},AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.TenantMaster},DeviceManager.Api.data.tenantmaster.lmstenantContext)">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.UserCommentsService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.UserComments})">
+            <inheritdoc />
+        </member>
+        <member name="T:DeviceManager.Api.Services.UserMasterService`1">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.UserMasterService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.UserMaster})">
+            <inheritdoc />
+        </member>
+        <member name="M:DeviceManager.Api.Services.UserPlanMappingService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.UserPlanMapping})">
+            <inheritdoc />
+        </member>
+        <member name="T:DeviceManager.Api.Services.IDetailStructureInputService`1">
+            <summary>
+            Device service interface
+            </summary>
+        </member>
+        <member name="T:DeviceManager.Api.Services.IFormMasterService`1">
+            <summary>
+            Device service interface
+            </summary>
+        </member>
+        <member name="T:DeviceManager.Api.Services.Interfaces.IUserManagerService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:DeviceManager.Api.Services.IMastersStructureInputService`1">
+            <summary>
+            Device service interface
+            </summary>
+        </member>
+        <member name="T:DeviceManager.Api.Services.IProfileFormMaintenanceService`1">
+            <summary>
+            Device service interface
+            </summary>
+        </member>
+        <member name="T:DeviceManager.Api.Services.IProfileMasterService`1">
+            <summary>
+            Device service interface
+            </summary>
+        </member>
+        <member name="T:DeviceManager.Api.Services.ITabFormProfileMaintenananceService`1">
+            <summary>
+            Device service interface
+            </summary>
+        </member>
+        <member name="T:DeviceManager.Api.Services.IUserLogDetailsService`1">
+            <summary>
+            Device service interface
+            </summary>
+        </member>
+        <member name="T:DeviceManager.Api.Services.IUserMasterService`1">
+            <summary>
+            Device service interface
+            </summary>
+        </member>
+        <member name="T:DeviceManager.Api.Startup">
+            <summary>
+            Configuration class for dotnet core application
+            </summary>
+        </member>
+        <member name="P:DeviceManager.Api.Startup.Configuration">
+            <summary>
+            Instance of application configuration
+            </summary>
+            <value></value>
+        </member>
+        <member name="M:DeviceManager.Api.Startup.#ctor(Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DeviceManager.Api.Startup"/> class.
+            </summary>
+            <param name="env">The env.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configures the services.
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+        <member name="M:DeviceManager.Api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Configures the specified application.
+            </summary>
+            <param name="app">The application.</param>
+        </member>
+        <member name="T:Hrms.Api.Controllers.LoginController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Hrms.Api.Controllers.LoginController.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Options.IOptions{DeviceManager.Api.Configuration.Settings.ConnectionSettings},Microsoft.AspNetCore.Http.IHttpContextAccessor,DeviceManager.Api.Services.ITokenService,DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.UserMasterViewModel},DeviceManager.Api.Services.Interfaces.IUserManagerService)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Hrms.Api.Controllers.LoginController.GetUserDetails">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hrms.Api.Controllers.LoginController.Login(DeviceManager.Api.ViewModels.UserLoginModel)">
+            <summary>
+            
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hrms.Api.Controllers.LoginController.Logout">
+            <summary>
+            
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hrms.Api.Controllers.LoginController.RefreshToken(DeviceManager.Api.Common.RefreshTokenReq)">
+            <summary>
+            
+            </summary>
+            <param name="refreshTokenReq"></param>
+            <returns></returns>
+        </member>
+        <member name="T:PasswordManager">
+            <summary>
+            Summary description for clsPwdEnc
+            </summary>
+        </member>
+    </members>
+</doc>

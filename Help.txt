@@ -1,0 +1,15 @@
+﻿Update Entities:
+dotnet ef dbcontext scaffold "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=identity;Data Source=.\SQLEXPRESS;" Microsoft.EntityFrameworkCore.SqlServer -o Model
+
+Update Entities For Mysql:
+dotnet ef dbcontext scaffold "server=localhost;user=root;password=Jktech@1234;database=lmsmaster;" Pomelo.EntityFrameworkCore.MySql -o model
+
+//Entity Mapping
+ViewModel (Entity Mapping)
+Mapping Profile
+//
+Services / Interface 
+Services / Implementation 
+IocContainerConfiguration Mapping
+Controller
+EmployeeAddress
