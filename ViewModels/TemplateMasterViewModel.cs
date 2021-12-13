@@ -36,7 +36,7 @@ namespace DeviceManager.Api.ViewModels
         public DateTime CreatedDate { get; set; }
         public int? ModifiedBy { get; set; }
         public DateTime? ModifiedDate { get; set; }
-        public sbyte IsActive { get; set; }
+        public bool IsActive { get; set; }
         public bool? IsDelete { get; set; }
 
         public virtual ItemTypeMasterViewModel FkItemType { get; set; }

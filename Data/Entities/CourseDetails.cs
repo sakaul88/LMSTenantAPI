@@ -7,7 +7,7 @@ namespace DeviceManager.Api.Database
     {
         public CourseDetails()
         {
-            Coursemaster = new HashSet<CourseMaster>();
+            CourseMaster = new HashSet<CourseMaster>();
         }
 
         public int Id { get; set; }
@@ -21,6 +21,6 @@ namespace DeviceManager.Api.Database
         public bool? IsActive { get; set; }
         public bool? IsDeleted { get; set; }
 
-        public virtual ICollection<CourseMaster> Coursemaster { get; set; }
+        public virtual ICollection<CourseMaster> CourseMaster { get; set; }
     }
 }

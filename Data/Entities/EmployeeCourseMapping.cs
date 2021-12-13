@@ -3,14 +3,13 @@ using System.Collections.Generic;
 
 namespace DeviceManager.Api.Database
 {
-    public partial class UserComments
+    public partial class EmployeeCourseMapping
     {
         public int Id { get; set; }
-        public int? FkEmployeeId { get; set; }
         public int? FkCourseId { get; set; }
-        public string Description { get; set; }
-        public int? CreatedBy { get; set; }
-        public DateTime? CreatedDate { get; set; }
+        public int? FkEmployeeId { get; set; }
+        public int CreatedBy { get; set; }
+        public DateTime CreatedDate { get; set; }
         public int? ModifiedBy { get; set; }
         public DateTime? ModifiedDate { get; set; }
         public bool? IsActive { get; set; }

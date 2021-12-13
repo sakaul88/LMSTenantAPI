@@ -11,7 +11,6 @@ namespace DeviceManager.Api.ViewModels
         {
             CourseAttachment = new HashSet<CourseAttachmentViewModel>();
             CourseCertificateMapping = new HashSet<CourseCertificateMappingViewModel>();
-            PlanCourseMapping = new HashSet<PlanCourseMappingViewModel>();
             RatingMaster = new HashSet<RatingMasterViewModel>();
             UserComments = new HashSet<UserCommentsViewModel>();
         }
@@ -29,11 +28,9 @@ namespace DeviceManager.Api.ViewModels
         public bool? IsDeleted { get; set; }
 
         public virtual CourseDetailsViewModel FkCourseDetails { get; set; }
-        public virtual CoursePricingViewModel FkCoursePricing { get; set; }
         public virtual LevelMasterViewModel FkLevel { get; set; }
         public virtual ICollection<CourseAttachmentViewModel> CourseAttachment { get; set; }
         public virtual ICollection<CourseCertificateMappingViewModel> CourseCertificateMapping { get; set; }
-        public virtual ICollection<PlanCourseMappingViewModel> PlanCourseMapping { get; set; }
         public virtual ICollection<RatingMasterViewModel> RatingMaster { get; set; }
         public virtual ICollection<UserCommentsViewModel> UserComments { get; set; }
     }

@@ -43,7 +43,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\TenantMaster\" />
     <Folder Include="Services\Validations\" />
     <Folder Include="Validation\" />
   </ItemGroup>

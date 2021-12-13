@@ -14,8 +14,5 @@ namespace DeviceManager.Api.Database
         public DateTime? ModifiedDate { get; set; }
         public bool? IsActive { get; set; }
         public bool? IsDeleted { get; set; }
-
-        public virtual TemplateFields FkField { get; set; }
-        public virtual TemplateMaster FkTemplate { get; set; }
     }
 }

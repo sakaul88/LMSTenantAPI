@@ -13,9 +13,6 @@ namespace DeviceManager.Api.Services.Interfaces
     public interface IUserManagerService
     {
         Task<AuthUser> AuthenticateAndGetUserDetails(UserLoginModel user);
-        Task<IEnumerable<GetUserAccessForms>> GetUserAccessForms(int id);
-        Task<IEnumerable<UserGridViewModel>> GetUserGridConfigurationByAny(int employeeId, int formId);
-        Task<IEnumerable<TabFormProfileMaintenanance>> GetUserTabConfigurationByForm(int profileId, int formId);
         Task<string> ForgotPassword(string email);
         Task<string> ResetPassword(ResetPasswordModel model);
     }

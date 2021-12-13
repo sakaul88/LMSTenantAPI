@@ -354,82 +354,23 @@
             </summary>
             <param name="service">The device service.</param>
         </member>
-        <member name="M:DeviceManager.Api.Controllers.CoursePricingController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.CoursePricingViewModel})">
-            <summary>
-            Initializes a new instance of the <see cref="!:DevicesController"/> class.
-            </summary>
-            <param name="service">The device service.</param>
-        </member>
         <member name="M:DeviceManager.Api.Controllers.CredentialDetailsController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.CredentialDetailsViewModel})">
             <summary>
             Initializes a new instance of the <see cref="!:DevicesController"/> class.
             </summary>
             <param name="service">The device service.</param>
         </member>
-        <member name="T:DeviceManager.Api.Controllers.DetailStructureInputController">
+        <member name="M:DeviceManager.Api.Controllers.EmployeeCourseMappingController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.EmployeeCourseMappingViewModel})">
             <summary>
-            
-            </summary>
-        </member>
-        <member name="M:DeviceManager.Api.Controllers.DetailStructureInputController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.DetailStructureInputViewModel})">
-            <summary>
-            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            Initializes a new instance of the <see cref="T:DeviceManager.Api.Controllers.CertificateMasterController"/> class.
             </summary>
             <param name="service">The device service.</param>
         </member>
-        <member name="M:DeviceManager.Api.Controllers.FormGridMasterController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.FormGridMasterViewModel})">
+        <member name="M:DeviceManager.Api.Controllers.EmployeeMasterController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.EmployeeMasterViewModel})">
             <summary>
-            Initializes a new instance of the <see cref="T:DeviceManager.Api.Controllers.FormGridMasterController"/> class.
+            Initializes a new instance of the <see cref="T:DeviceManager.Api.Controllers.EmployeeMasterController"/> class.
             </summary>
             <param name="service">The device service.</param>
-        </member>
-        <member name="T:DeviceManager.Api.Controllers.FormMasterController">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:DeviceManager.Api.Controllers.FormMasterController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.FormMasterViewModel})">
-            <summary>
-            Initializes a new instance of the <see cref="!:DevicesController"/> class.
-            </summary>
-            <param name="service">The device service.</param>
-            
-        </member>
-        <member name="T:DeviceManager.Api.Controllers.GetFormDetailsController">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:DeviceManager.Api.Controllers.GetFormDetailsController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.Data.Views.GetFormDetailsViewModel})">
-            <summary>
-            Initializes a new instance of the <see cref="T:DeviceManager.Api.Controllers.GetFormDetailsController"/> class.
-            </summary>
-            <param name="service">The device service.</param>
-        </member>
-        <member name="T:DeviceManager.Api.Controllers.GetUserAccessFormsController">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:DeviceManager.Api.Controllers.GetUserAccessFormsController.#ctor(DeviceManager.Api.Services.Interfaces.IUserManagerService)">
-            <summary>
-            Initializes a new instance of the <see cref="T:DeviceManager.Api.Controllers.GetUserAccessFormsController"/> class.
-            </summary>
-            <param name="userManagerService"></param>
-            <param name="tenantConnectionService"></param>
-        </member>
-        <member name="M:DeviceManager.Api.Controllers.GetUserAccessFormsController.GetAllForms">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:DeviceManager.Api.Controllers.GetUserAccessFormsController.UserGridConfigurationByAny(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="formId"></param>
-            <returns></returns>
         </member>
         <member name="M:DeviceManager.Api.Controllers.ItemTypeMasterController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.ItemTypeMasterViewModel})">
             <summary>
@@ -443,37 +384,9 @@
             </summary>
             <param name="service">The device service.</param>
         </member>
-        <member name="T:DeviceManager.Api.Controllers.MastersStructureInputController">
+        <member name="M:DeviceManager.Api.Controllers.ProfileCourseMappingController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.ProfileCourseMappingViewModel})">
             <summary>
-            
-            </summary>
-        </member>
-        <member name="M:DeviceManager.Api.Controllers.MastersStructureInputController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.MastersStructureInputViewModel})">
-            <summary>
-            Initializes a new instance of the <see cref="!:DevicesController"/> class.
-            </summary>
-            <param name="service">The device service.</param>
-        </member>
-        <member name="M:DeviceManager.Api.Controllers.PlanCourseMappingController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.PlanCourseMappingViewModel})">
-            <summary>
-            Initializes a new instance of the <see cref="!:DevicesController"/> class.
-            </summary>
-            <param name="service">The device service.</param>
-        </member>
-        <member name="M:DeviceManager.Api.Controllers.PlanMasterController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.PlanMasterViewModel})">
-            <summary>
-            Initializes a new instance of the <see cref="!:DevicesController"/> class.
-            </summary>
-            <param name="service">The device service.</param>
-        </member>
-        <member name="T:DeviceManager.Api.Controllers.ProfileFormMaintenanceController">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:DeviceManager.Api.Controllers.ProfileFormMaintenanceController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.ProfileFormMaintenanceViewModel})">
-            <summary>
-            Initializes a new instance of the <see cref="!:DevicesController"/> class.
+            Initializes a new instance of the <see cref="T:DeviceManager.Api.Controllers.ProfileCourseMappingController"/> class.
             </summary>
             <param name="service">The device service.</param>
         </member>
@@ -500,17 +413,6 @@
             </summary>
             <param name="service">The device service.</param>
         </member>
-        <member name="T:DeviceManager.Api.Controllers.TabFormProfileMaintenananceController">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:DeviceManager.Api.Controllers.TabFormProfileMaintenananceController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.TabFormProfileMaintenananceViewModel})">
-            <summary>
-            Initializes a new instance of the <see cref="!:DevicesController"/> class.
-            </summary>
-            <param name="service">The device service.</param>
-        </member>
         <member name="M:DeviceManager.Api.Controllers.TemplateFieldMappingController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.TemplateFieldMappingViewModel})">
             <summary>
             Initializes a new instance of the <see cref="!:DevicesController"/> class.
@@ -529,44 +431,7 @@
             </summary>
             <param name="service">The device service.</param>
         </member>
-        <member name="M:DeviceManager.Api.Controllers.TenantMasterController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.TenantMasterViewModel},DeviceManager.Api.Services.ITenantMasterService{DeviceManager.Api.ViewModels.TenantMasterViewModel})">
-            <summary>
-            Initializes a new instance of the <see cref="!:DevicesController"/> class.
-            </summary>
-            <param name="service">The device service.</param>
-        </member>
         <member name="M:DeviceManager.Api.Controllers.UserCommentsController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.UserCommentsViewModel})">
-            <summary>
-            Initializes a new instance of the <see cref="!:DevicesController"/> class.
-            </summary>
-            <param name="service">The device service.</param>
-        </member>
-        <member name="M:DeviceManager.Api.Controllers.UserGridConfigurationController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.UserGridConfigurationViewModel})">
-            <summary>
-            Initializes a new instance of the <see cref="T:DeviceManager.Api.Controllers.UserGridConfigurationController"/> class.
-            </summary>
-            <param name="service">The device service.</param>
-        </member>
-        <member name="T:DeviceManager.Api.Controllers.UserMasterController">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:DeviceManager.Api.Controllers.UserMasterController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.UserMasterViewModel},DeviceManager.Api.Services.IUserMasterService{DeviceManager.Api.ViewModels.UserMasterViewModel})">
-            <summary>
-            Initializes a new instance of the <see cref="T:DeviceManager.Api.Controllers.UserMasterController"/> class.
-            </summary>
-            <param name="service">The device service.</param>
-        </member>
-        <member name="M:DeviceManager.Api.Controllers.UserMasterController.UpdateLoginRequest(DeviceManager.Api.Common.DTO.LoginApproval.LoginUpdateRequest)">
-            <summary>
-             Approve or Reject Login request - Approve = 1, Reject = 2, Unlock = 3, ResetPassword=4
-            </summary>
-            <param name="userMasterIds"></param>
-            <param name="loginApprovalReq"></param>
-            <returns></returns>
-        </member>
-        <member name="M:DeviceManager.Api.Controllers.UserPlanMappingController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.UserPlanMappingViewModel})">
             <summary>
             Initializes a new instance of the <see cref="!:DevicesController"/> class.
             </summary>
@@ -1171,16 +1036,7 @@
         <member name="M:DeviceManager.Api.Services.Implementation.CourseCertificateMappingService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.CourseCertificateMapping})">
             <inheritdoc />
         </member>
-        <member name="M:DeviceManager.Api.Services.Implementation.FormGridMasterService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.FormGridMaster})">
-            <inheritdoc />
-        </member>
-        <member name="M:DeviceManager.Api.Services.Implementation.GetFormDetailsService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Data.Views.GetFormDetails})">
-            <inheritdoc />
-        </member>
         <member name="M:DeviceManager.Api.Services.Implementation.ScheduleMasterService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.ScheduleMaster})">
-            <inheritdoc />
-        </member>
-        <member name="M:DeviceManager.Api.Services.Implementation.UserGridConfigurationService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.UserGridConfiguration})">
             <inheritdoc />
         </member>
         <member name="M:DeviceManager.Api.Services.CourseDetailsService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.CourseDetails})">
@@ -1189,28 +1045,13 @@
         <member name="M:DeviceManager.Api.Services.CourseMasterService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.CourseMaster})">
             <inheritdoc />
         </member>
-        <member name="M:DeviceManager.Api.Services.CoursePricingService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.CoursePricing})">
-            <inheritdoc />
-        </member>
         <member name="M:DeviceManager.Api.Services.CredentialDetailsService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.CredentialDetails})">
             <inheritdoc />
         </member>
-        <member name="T:DeviceManager.Api.Services.DetailStructureInputService`1">
+        <member name="M:DeviceManager.Api.Services.EmployeeCourseMappingService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.EmployeeCourseMapping})">
             <inheritdoc />
         </member>
-        <member name="M:DeviceManager.Api.Services.DetailStructureInputService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.DetailStructureInput})">
-            <inheritdoc />
-        </member>
-        <member name="T:DeviceManager.Api.Services.FormMasterService`1">
-            <inheritdoc />
-        </member>
-        <member name="M:DeviceManager.Api.Services.FormMasterService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.FormMaster})">
-            <inheritdoc />
-        </member>
-        <member name="T:DeviceManager.Api.Services.GetUserAccessFormsService`1">
-            <inheritdoc />
-        </member>
-        <member name="M:DeviceManager.Api.Services.GetUserAccessFormsService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Data.Views.GetUserAccessForms})">
+        <member name="M:DeviceManager.Api.Services.EmployeeMasterService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.EmployeeMaster})">
             <inheritdoc />
         </member>
         <member name="M:DeviceManager.Api.Services.ItemTypeMasterService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.ItemTypeMaster})">
@@ -1219,22 +1060,7 @@
         <member name="M:DeviceManager.Api.Services.LevelMasterService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.LevelMaster})">
             <inheritdoc />
         </member>
-        <member name="T:DeviceManager.Api.Services.MastersStructureInputService`1">
-            <inheritdoc />
-        </member>
-        <member name="M:DeviceManager.Api.Services.MastersStructureInputService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.MastersStructureInput})">
-            <inheritdoc />
-        </member>
-        <member name="M:DeviceManager.Api.Services.PlanCourseMappingService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.PlanCourseMapping})">
-            <inheritdoc />
-        </member>
-        <member name="M:DeviceManager.Api.Services.PlanMasterService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.PlanMaster})">
-            <inheritdoc />
-        </member>
-        <member name="T:DeviceManager.Api.Services.ProfileFormMaintenanceService`1">
-            <inheritdoc />
-        </member>
-        <member name="M:DeviceManager.Api.Services.ProfileFormMaintenanceService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.ProfileFormMaintenance})">
+        <member name="M:DeviceManager.Api.Services.ProfileCourseMappingService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.ProfileCourseMapping})">
             <inheritdoc />
         </member>
         <member name="T:DeviceManager.Api.Services.ProfileMasterService`1">
@@ -1246,12 +1072,6 @@
         <member name="M:DeviceManager.Api.Services.RatingMasterService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.RatingMaster})">
             <inheritdoc />
         </member>
-        <member name="T:DeviceManager.Api.Services.TabFormProfileMaintenananceService`1">
-            <inheritdoc />
-        </member>
-        <member name="M:DeviceManager.Api.Services.TabFormProfileMaintenananceService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.TabFormProfileMaintenanance})">
-            <inheritdoc />
-        </member>
         <member name="M:DeviceManager.Api.Services.TemplateFieldMappingService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.TemplateFieldMapping})">
             <inheritdoc />
         </member>
@@ -1261,27 +1081,10 @@
         <member name="M:DeviceManager.Api.Services.TemplateMasterService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.TemplateMaster})">
             <inheritdoc />
         </member>
-        <member name="M:DeviceManager.Api.Services.TenantMasterService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,Microsoft.Extensions.Options.IOptions{DeviceManager.Api.Configuration.Settings.ConnectionSettings},AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.TenantMaster},DeviceManager.Api.data.tenantmaster.lmstenantContext)">
-            <inheritdoc />
-        </member>
         <member name="M:DeviceManager.Api.Services.UserCommentsService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.UserComments})">
             <inheritdoc />
         </member>
-        <member name="T:DeviceManager.Api.Services.UserMasterService`1">
-            <inheritdoc />
-        </member>
-        <member name="M:DeviceManager.Api.Services.UserMasterService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.UserMaster})">
-            <inheritdoc />
-        </member>
-        <member name="M:DeviceManager.Api.Services.UserPlanMappingService`1.#ctor(DeviceManager.Api.Data.Management.IUnitOfWork,AutoMapper.IMapper,DeviceManager.Api.Repository.IGenericRepository{DeviceManager.Api.Database.UserPlanMapping})">
-            <inheritdoc />
-        </member>
-        <member name="T:DeviceManager.Api.Services.IDetailStructureInputService`1">
-            <summary>
-            Device service interface
-            </summary>
-        </member>
-        <member name="T:DeviceManager.Api.Services.IFormMasterService`1">
+        <member name="T:DeviceManager.Api.Services.IProfileMasterService`1">
             <summary>
             Device service interface
             </summary>
@@ -1289,31 +1092,6 @@
         <member name="T:DeviceManager.Api.Services.Interfaces.IUserManagerService">
             <summary>
             
-            </summary>
-        </member>
-        <member name="T:DeviceManager.Api.Services.IMastersStructureInputService`1">
-            <summary>
-            Device service interface
-            </summary>
-        </member>
-        <member name="T:DeviceManager.Api.Services.IProfileFormMaintenanceService`1">
-            <summary>
-            Device service interface
-            </summary>
-        </member>
-        <member name="T:DeviceManager.Api.Services.IProfileMasterService`1">
-            <summary>
-            Device service interface
-            </summary>
-        </member>
-        <member name="T:DeviceManager.Api.Services.ITabFormProfileMaintenananceService`1">
-            <summary>
-            Device service interface
-            </summary>
-        </member>
-        <member name="T:DeviceManager.Api.Services.IUserLogDetailsService`1">
-            <summary>
-            Device service interface
             </summary>
         </member>
         <member name="T:DeviceManager.Api.Services.IUserMasterService`1">

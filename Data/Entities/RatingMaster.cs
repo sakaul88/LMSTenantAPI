@@ -6,7 +6,7 @@ namespace DeviceManager.Api.Database
     public partial class RatingMaster
     {
         public int Id { get; set; }
-        public int? FkUserId { get; set; }
+        public int? FkEmployeeId { get; set; }
         public int? FkCourseId { get; set; }
         public int? CreatedBy { get; set; }
         public DateTime? CreatedDate { get; set; }
@@ -17,6 +17,6 @@ namespace DeviceManager.Api.Database
         public decimal? Rating { get; set; }
 
         public virtual CourseMaster FkCourse { get; set; }
-        public virtual UserMaster FkUser { get; set; }
+        public virtual EmployeeMaster FkEmployee { get; set; }
     }
 }

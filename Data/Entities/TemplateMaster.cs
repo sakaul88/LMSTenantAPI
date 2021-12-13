@@ -8,13 +8,11 @@ namespace DeviceManager.Api.Database
         public TemplateMaster()
         {
             CertificateMaster = new HashSet<CertificateMaster>();
-            TemplateFieldMapping = new HashSet<TemplateFieldMapping>();
         }
 
         public int Id { get; set; }
         public int? FkItemTypeId { get; set; }
         public int? FkcreditionalDetailId { get; set; }
-        public int? FkEmailActionTypeId { get; set; }
         public string From { get; set; }
         public string FromName { get; set; }
         public string ToAddress { get; set; }
@@ -34,12 +32,11 @@ namespace DeviceManager.Api.Database
         public DateTime CreatedDate { get; set; }
         public int? ModifiedBy { get; set; }
         public DateTime? ModifiedDate { get; set; }
-        public bool? IsActive { get; set; }
+        public bool IsActive { get; set; }
         public bool? IsDelete { get; set; }
 
         public virtual ItemTypeMaster FkItemType { get; set; }
         public virtual CredentialDetails FkcreditionalDetail { get; set; }
         public virtual ICollection<CertificateMaster> CertificateMaster { get; set; }
-        public virtual ICollection<TemplateFieldMapping> TemplateFieldMapping { get; set; }
     }
 }

@@ -2,7 +2,6 @@
 using System.Linq;
 using DeviceManager.Api.Configuration.DatabaseTypes;
 using DeviceManager.Api.Configuration.Settings;
-using DeviceManager.Api.data.tenantmaster;
 using DeviceManager.Api.Data;
 using DeviceManager.Api.Helpers;
 using Microsoft.EntityFrameworkCore.Infrastructure;
@@ -26,8 +25,6 @@ namespace DeviceManager.Api.Configuration
         {
             string connectionString = configuration.GetConnectionString(Constants.DefaultConnection);
 
-            string tenantConnectionString = configuration.GetConnectionString(Constants.TenantDbConnection);
-
             // Database connection settings
             var connectionOptions = services.BuildServiceProvider().GetRequiredService<IOptions<ConnectionSettings>>();
 
@@ -40,9 +37,6 @@ namespace DeviceManager.Api.Configuration
             // Entity framework configuration
             services.AddDbContext<DeviceContext>(options => 
                 databaseTypeInstance.GetContextBuilder(options, connectionOptions, connectionString));
-
-            services.AddDbContext<lmstenantContext>(options =>
-                databaseTypeInstance.GetContextBuilder(options, connectionOptions, tenantConnectionString));
 
             services.AddScoped<IDbContext, DeviceContext>();
         }

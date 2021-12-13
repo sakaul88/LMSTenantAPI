@@ -9,7 +9,7 @@ namespace DeviceManager.Api.ViewModels
     {
         public CourseDetailsViewModel()
         {
-            Coursemaster = new HashSet<CourseMasterViewModel>();
+            CourseMaster = new HashSet<CourseMasterViewModel>();
         }
 
         public int Id { get; set; }
@@ -23,6 +23,6 @@ namespace DeviceManager.Api.ViewModels
         public bool? IsActive { get; set; }
         public bool? IsDeleted { get; set; }
 
-        public virtual ICollection<CourseMasterViewModel> Coursemaster { get; set; }
+        public virtual ICollection<CourseMasterViewModel> CourseMaster { get; set; }
     }
 }
