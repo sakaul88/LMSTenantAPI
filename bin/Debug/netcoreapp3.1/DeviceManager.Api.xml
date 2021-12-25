@@ -384,6 +384,43 @@
             </summary>
             <param name="service">The device service.</param>
         </member>
+        <member name="T:DeviceManager.Api.Controllers.LoginController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.LoginController.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Options.IOptions{DeviceManager.Api.Configuration.Settings.ConnectionSettings},Microsoft.AspNetCore.Http.IHttpContextAccessor,DeviceManager.Api.Services.ITokenService,DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.EmployeeMasterViewModel},DeviceManager.Api.Services.Interfaces.IUserManagerService)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.LoginController.GetUserDetails">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.LoginController.Login(DeviceManager.Api.ViewModels.UserLoginModel)">
+            <summary>
+            
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.LoginController.Logout">
+            <summary>
+            
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.Api.Controllers.LoginController.RefreshToken(DeviceManager.Api.Common.RefreshTokenReq)">
+            <summary>
+            
+            </summary>
+            <param name="refreshTokenReq"></param>
+            <returns></returns>
+        </member>
         <member name="M:DeviceManager.Api.Controllers.ProfileCourseMappingController.#ctor(DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.ProfileCourseMappingViewModel})">
             <summary>
             Initializes a new instance of the <see cref="T:DeviceManager.Api.Controllers.ProfileCourseMappingController"/> class.
@@ -1127,43 +1164,6 @@
             Configures the specified application.
             </summary>
             <param name="app">The application.</param>
-        </member>
-        <member name="T:Hrms.Api.Controllers.LoginController">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Hrms.Api.Controllers.LoginController.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Options.IOptions{DeviceManager.Api.Configuration.Settings.ConnectionSettings},Microsoft.AspNetCore.Http.IHttpContextAccessor,DeviceManager.Api.Services.ITokenService,DeviceManager.Api.Services.Generic.IGenericService{DeviceManager.Api.ViewModels.UserMasterViewModel},DeviceManager.Api.Services.Interfaces.IUserManagerService)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Hrms.Api.Controllers.LoginController.GetUserDetails">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Hrms.Api.Controllers.LoginController.Login(DeviceManager.Api.ViewModels.UserLoginModel)">
-            <summary>
-            
-            </summary>
-            <param name="user"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Hrms.Api.Controllers.LoginController.Logout">
-            <summary>
-            
-            </summary>
-            <param name="user"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Hrms.Api.Controllers.LoginController.RefreshToken(DeviceManager.Api.Common.RefreshTokenReq)">
-            <summary>
-            
-            </summary>
-            <param name="refreshTokenReq"></param>
-            <returns></returns>
         </member>
         <member name="T:PasswordManager">
             <summary>

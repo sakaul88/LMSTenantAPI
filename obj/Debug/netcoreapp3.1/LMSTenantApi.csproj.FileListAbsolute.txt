@@ -186,3 +186,4 @@ D:\LMS\LMSTenantAPI\obj\Debug\netcoreapp3.1\LMSTenantApi.csproj.CopyComplete
 D:\LMS\LMSTenantAPI\obj\Debug\netcoreapp3.1\DeviceManager.Api.dll
 D:\LMS\LMSTenantAPI\obj\Debug\netcoreapp3.1\DeviceManager.Api.pdb
 D:\LMS\LMSTenantAPI\obj\Debug\netcoreapp3.1\LMSTenantApi.genruntimeconfig.cache
+D:\LMS\LMSTenantAPI\obj\Debug\netcoreapp3.1\LMSTenantApi.csprojAssemblyReference.cache

@@ -10,7 +10,7 @@
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <ShowAllFiles>true</ShowAllFiles>
     <NameOfLastUsedPublishProfile>LiveIdentityAPIs - Web Deploy</NameOfLastUsedPublishProfile>
-    <ActiveDebugProfile>LMSMasterApi</ActiveDebugProfile>
+    <ActiveDebugProfile>LMSTenantApi</ActiveDebugProfile>
     <Controller_SelectedScaffolderID>MvcControllerEmptyScaffolder</Controller_SelectedScaffolderID>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

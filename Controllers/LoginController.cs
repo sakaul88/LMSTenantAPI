@@ -23,7 +23,7 @@ using DeviceManager.Api.Services.Generic;
 using DeviceManager.Api.ActionFilters;
 using System.Net;
 
-namespace Hrms.Api.Controllers
+namespace DeviceManager.Api.Controllers
 {
     /// <summary>
     /// 
@@ -39,7 +39,7 @@ namespace Hrms.Api.Controllers
         private readonly Microsoft.Extensions.Configuration.IConfiguration _config;
         private readonly IHttpContextAccessor HttpContextAccessor;
         private readonly ITokenService TokenService;
-        private readonly IGenericService<UserMasterViewModel> UserMasterService;
+        private readonly IGenericService<EmployeeMasterViewModel> UserMasterService;
         /// <summary>
         /// 
         /// </summary>
@@ -47,7 +47,7 @@ namespace Hrms.Api.Controllers
             , IOptions<ConnectionSettings> connectionOptions
             , IHttpContextAccessor httpContentAccessor
             , ITokenService tokenService
-            , IGenericService<UserMasterViewModel> userMasterService,
+            , IGenericService<EmployeeMasterViewModel> userMasterService,
             IUserManagerService userManagerService)
         {
             ConnectionOptions = connectionOptions;
@@ -159,14 +159,14 @@ namespace Hrms.Api.Controllers
         }
 
         [HttpPost, Route("Register")]
-        public async Task<IActionResult> Registration([FromBody]UserMasterViewModel user)
+        public async Task<IActionResult> Registration([FromBody]EmployeeMasterViewModel user)
         {
             if (user == null)
             {
                 return BadRequest("Invalid client request");
             }
 
-            user.Status = "New";
+            //user.Status = "New";
             user.PasswordExpiryDate = DateTime.UtcNow.AddDays(ConnectionOptions.Value.PassswordExpirationDays);
             user.IsActive = false;
             user.IsDeleted = false;

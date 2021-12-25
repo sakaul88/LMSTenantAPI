@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using DeviceManager.Api.Helpers;
 using DeviceManager.Api.Configuration.Settings;
 using DeviceManager.Api.Configuration.DatabaseTypes;
+using DeviceManager.Api.Common;
 
 namespace DeviceManager.Api.Data.Management
 {
@@ -65,7 +66,7 @@ namespace DeviceManager.Api.Data.Management
             get
             {
                 ValidateHttpContext();
-                int tenantId = 1;
+                int tenantId = int.Parse(httpContext.Request.Headers["tenantId"]);
                 //int.Parse(httpContext.Request.Headers[TenantIdFieldName]);
                 return tenantId;
             }
@@ -78,15 +79,15 @@ namespace DeviceManager.Api.Data.Management
             // 1. Create Connection String Builder using Default connection string
             var connectionBuilder = databaseType.GetConnectionBuilder(connectionOptions.Value.DefaultConnection);
 
-            //// 2. Remove old Database Name from connection string
-            //connectionBuilder.Remove(DatabaseFieldKeyword);
+            // 2. Remove old Database Name from connection string
+            connectionBuilder.Remove(DatabaseFieldKeyword);
 
-            //// 3. Obtain Database name from DataBaseManager and Add new DB name to 
-            //connectionBuilder.Add(DatabaseFieldKeyword, dataBaseManager.GetDataBaseName(connectionOptions.Value.MasterDbConnection, tenantId));
+            // 3. Obtain Database name from DataBaseManager and Add new DB name to 
+            connectionBuilder.Add(DatabaseFieldKeyword, dataBaseManager.GetDataBaseName(connectionOptions.Value.DefaultConnection, tenantId));
 
             // 4. Create DbContextOptionsBuilder with new Database name
             var contextOptionsBuilder = new DbContextOptionsBuilder<DeviceContext>();
-            
+
             databaseType.SetConnectionString(contextOptionsBuilder, connectionBuilder.ConnectionString);
 
             return contextOptionsBuilder;

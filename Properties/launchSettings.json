@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "LMSMasterApi": {
+    "LMSTenantApi": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",

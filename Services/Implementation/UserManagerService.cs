@@ -22,6 +22,7 @@ namespace DeviceManager.Api.Services.Implementation
     {
         private readonly IGenericRepository<GetUserAccessForms> UserAccessFormRepository;
         private readonly IGenericRepository<GetFormDetails> FormDetailsRepository;
+        private readonly IGenericRepository<EmployeeMaster> UserRepository;
         private readonly IMapper mapper;
         private readonly IDbContext Context;
 
@@ -29,10 +30,12 @@ namespace DeviceManager.Api.Services.Implementation
         IMapper mapper,
         IGenericRepository<GetUserAccessForms> userAccessFormRepository,
         IGenericRepository<GetFormDetails> formDetailsRepository,
+        IGenericRepository<EmployeeMaster> userRepository,
         IDbContext context)
         {
             UserAccessFormRepository = userAccessFormRepository;
             FormDetailsRepository = formDetailsRepository;
+            UserRepository = userRepository;
             this.mapper = mapper;
             Context = context;
         }
@@ -41,99 +44,90 @@ namespace DeviceManager.Api.Services.Implementation
         {
             AuthUser authenticatedUser = new AuthUser();
 
-            //var userEntity = await UserRepository.GetAll();
-            //var user = userEntity.FirstOrDefault(x => x.UserName == model.EmailAddress);
-            //if (user == null)
-            //{
-            //    throw new DomainException(HttpStatusCode.Unauthorized, "User01", "user does not exists.");
-            //}
-            //if (user.IsLocked == true)
-            //{
-            //    throw new DomainException(HttpStatusCode.NotAcceptable, "User02", "your account has been locked please cordinate with system admin.");
-            //}
-            //if (user.IsActive == false)
-            //{
-            //    throw new DomainException(HttpStatusCode.NotAcceptable, "User03", "your account has been not active so please cordinate with system admin.");
-            //}
-            //if (user.PasswordExpiryDate <= DateTime.UtcNow)
-            //{
-            //    throw new DomainException(HttpStatusCode.Unauthorized, "User04", "your password has been expired.");
-            //}
-            //if (user.Password != PasswordManager.EncryptPassword(model.Password))
-            //{
-            //    if (user.LoginFailureCount == 4)
-            //    {
-            //        user.IsLocked = true;
-            //        user.IsActive = false;
-            //        user.LoginFailureCount++;
-            //    }
-            //    else
-            //        user.LoginFailureCount = user.LoginFailureCount != null ? (user.LoginFailureCount + 1) : 1;
+            var userEntity = await UserRepository.GetAll();
+            var user = userEntity.FirstOrDefault(x => x.UserName == model.EmailAddress);
+            if (user == null)
+            {
+                throw new DomainException(HttpStatusCode.Unauthorized, "User01", "user does not exists.");
+            }
+            if (user.IsLocked == true)
+            {
+                throw new DomainException(HttpStatusCode.NotAcceptable, "User02", "your account has been locked please cordinate with system admin.");
+            }
+            if (user.IsActive == false)
+            {
+                throw new DomainException(HttpStatusCode.NotAcceptable, "User03", "your account has been not active so please cordinate with system admin.");
+            }
+            if (user.PasswordExpiryDate <= DateTime.UtcNow)
+            {
+                throw new DomainException(HttpStatusCode.Unauthorized, "User04", "your password has been expired.");
+            }
+            if (user.Password != PasswordManager.EncryptPassword(model.Password))
+            {
+                if (user.LoginFailureCount == 4)
+                {
+                    user.IsLocked = true;
+                    user.IsActive = false;
+                    user.LoginFailureCount++;
+                }
+                else
+                    user.LoginFailureCount = user.LoginFailureCount != null ? (user.LoginFailureCount + 1) : 1;
 
-            //    UserRepository.Update(user.Id, user);
-            //    throw new DomainException(HttpStatusCode.Unauthorized, "User05", "invalid password try again.");
-            //}
+                UserRepository.Update(user.Id, user);
+                throw new DomainException(HttpStatusCode.Unauthorized, "User05", "invalid password try again.");
+            }
 
-            //if (user != null)
-            //{
-            //    if (user.LoginFailureCount > 0)
-            //    {
-            //        user.LoginFailureCount = 0;
-            //        UserRepository.Update(user.Id, user);
-            //    }
+            if (user != null)
+            {
+                if (user.LoginFailureCount > 0)
+                {
+                    user.LoginFailureCount = 0;
+                    UserRepository.Update(user.Id, user);
+                }
 
-            //    var tenant = await  TenantMasterRepository.FindBy(i => i.FkuserId == (user.Id));
+                authenticatedUser.uid = user.Id;
+                authenticatedUser.email = user.UserName;
+                authenticatedUser.firstName = user.FirstName;
+                authenticatedUser.isapprover = true;
+                authenticatedUser.isAuth = true;
+                authenticatedUser.lastName = user.LastName;
+                authenticatedUser.status = true;
+                authenticatedUser.ulevel = 1;
+                authenticatedUser.usr_level = 2;
+                authenticatedUser.roles = new List<string> { "role1", "role2" };
+                authenticatedUser.imgurl = user.ImageUrl;
+                authenticatedUser.FkProfileId = user.FkProfileId;
 
-            //    authenticatedUser.uid = user.Id;
-            //    authenticatedUser.email = user.UserName;
-            //    authenticatedUser.firstName = user.FirstName;
-            //    authenticatedUser.isapprover = true;
-            //    authenticatedUser.isAuth = true;
-            //    authenticatedUser.lastName = user.LastName;
-            //    authenticatedUser.status = true;
-            //    authenticatedUser.ulevel = 1;
-            //    authenticatedUser.usr_level = 2;
-            //    authenticatedUser.roles = new List<string> { "role1", "role2" };
-            //    authenticatedUser.imgurl = user.ImageUrl;
-            //    authenticatedUser.FkProfileId = user.FkProfileId;
+                //if (employee != null && employee.Count() > 0)
+                //{
+                //    var employeeModel = employee.FirstOrDefault();
+                //    //authenticatedUser.roleId = int.Parse(employeeModel.FkRoleId.ToString());
 
-            //    if (tenant != null && tenant.FirstOrDefault() != null)
-            //    {
-            //        authenticatedUser.cmpid = tenant.FirstOrDefault().Id;
-            //        //authenticatedUser.countryName = company.CountryName;
-            //        authenticatedUser.DbName = tenant.FirstOrDefault().Schema;
-            //    }
 
-            //    //if (employee != null && employee.Count() > 0)
-            //    //{
-            //    //    var employeeModel = employee.FirstOrDefault();
-            //    //    //authenticatedUser.roleId = int.Parse(employeeModel.FkRoleId.ToString());
-                    
-                    
-            //    //    //authenticatedUser.uid = employeeModel.Id;
-            //    //    authenticatedUser.fkEmpId = authenticatedUser.cmpid;
+                //    //authenticatedUser.uid = employeeModel.Id;
+                //    authenticatedUser.fkEmpId = authenticatedUser.cmpid;
 
-            //    //    if (employeeModel.FkLandingPage != null)
-            //    //    {
-            //    //        authenticatedUser.FkLandingPageId = employeeModel.FkLandingPage.Id;
-            //    //        authenticatedUser.landingPageURL = employeeModel.FkLandingPage.Url;
-            //    //    }
+                //    if (employeeModel.FkLandingPage != null)
+                //    {
+                //        authenticatedUser.FkLandingPageId = employeeModel.FkLandingPage.Id;
+                //        authenticatedUser.landingPageURL = employeeModel.FkLandingPage.Url;
+                //    }
 
-            //    //    if (employeeModel.FkDepartmentNavigation != null)
-            //    //    {
-            //    //        authenticatedUser.FkDepartmentId = employeeModel.FkDepartmentNavigation.Id;
-            //    //        authenticatedUser.departmentName = employeeModel.FkDepartmentNavigation.Name;
-            //    //    }
+                //    if (employeeModel.FkDepartmentNavigation != null)
+                //    {
+                //        authenticatedUser.FkDepartmentId = employeeModel.FkDepartmentNavigation.Id;
+                //        authenticatedUser.departmentName = employeeModel.FkDepartmentNavigation.Name;
+                //    }
 
-            //    //    if (employeeModel.FkLocationMasterId != null)
-            //    //    {
-            //    //        var location = await LocationRepository.GetById(employeeModel.FkLocationMasterId.Value);
-            //    //        authenticatedUser.location = location.Name;
-            //    //    }
-            //    //    else
-            //    //        authenticatedUser.location = "None";
-            //    //}
-            //}
+                //    if (employeeModel.FkLocationMasterId != null)
+                //    {
+                //        var location = await LocationRepository.GetById(employeeModel.FkLocationMasterId.Value);
+                //        authenticatedUser.location = location.Name;
+                //    }
+                //    else
+                //        authenticatedUser.location = "None";
+                //}
+            }
             return authenticatedUser;
         }
 

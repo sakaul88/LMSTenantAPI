@@ -15,11 +15,8 @@ namespace DeviceManager.Api.Services.Token
             {
                 new Claim(ClaimTypes.Name, authenticatedUser.firstName),
                 //new Claim(ClaimTypes.Country, authenticatedUser.countryName),
-                //new Claim(ClaimsConstants.EmployeeId, authenticatedUser.EmployeeId.ToString()),
-                //new Claim(ClaimsConstants.TenantId, authenticatedUser.cmpid.ToString()),
-                //new Claim(ClaimsConstants.fkEmpId, authenticatedUser.fkEmpId.ToString()),
                 new Claim(ClaimsConstants.ProfileId, authenticatedUser.FkProfileId.ToString()),
-               new Claim(ClaimsConstants.UserId, authenticatedUser.uid.ToString())
+                new Claim(ClaimsConstants.UserId, authenticatedUser.uid.ToString())
             };
         }
 

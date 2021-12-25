@@ -16,6 +16,7 @@ namespace DeviceManager.Api.Controllers
     //[Route("api/v{version:apiVersion}/[controller]")]
     [Route("api/[controller]")]
     [Authorize]
+    [GettingAuthTokenFilter]
     public class BaseController<TViewModel> : Controller where TViewModel : class
     {
         private IGenericService<TViewModel> GenericService { get; set; }

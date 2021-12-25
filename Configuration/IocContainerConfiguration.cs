@@ -50,6 +50,7 @@ namespace DeviceManager.Api.Configuration
             services.AddScoped(typeof(IGenericService<TemplateFieldsViewModel>), typeof(TemplateFieldsService<TemplateFieldsViewModel>));
             services.AddScoped(typeof(IGenericService<TemplateMasterViewModel>), typeof(TemplateMasterService<TemplateMasterViewModel>));
             services.AddScoped(typeof(IGenericService<UserCommentsViewModel>), typeof(UserCommentsService<UserCommentsViewModel>));
+            services.AddScoped(typeof(IGenericService<EmployeeMasterViewModel>), typeof(EmployeeMasterService<EmployeeMasterViewModel>));
 
             //Token Service
             services.AddScoped<ITokenService, TokenService>();
