@@ -1,0 +1,37 @@
+﻿<Properties StartupConfiguration="{8787DCC8-50BC-4174-A41F-D05D90BA0607}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Dockerfile">
+    <Files>
+      <File FileName="ViewModels/CertificateMasterViewModel.cs" Line="22" Column="20" />
+      <File FileName="appsettings.json" />
+      <File FileName="Controllers/CourseDetailsController.cs" />
+      <File FileName="Configuration/ConfigurationOptions.cs" />
+      <File FileName="Data/Management/ContextFactory.cs" />
+      <File FileName="Program.cs" />
+      <File FileName="LMSTenantApi.csproj" Line="4" Column="35" />
+      <File FileName="Dockerfile" Line="16" Column="68" />
+      <File FileName="docker-compose.yml" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="LMSTenantApi" expanded="True">
+            <Node name="docker-compose" expanded="True" />
+            <Node name="LMSTenantApi" expanded="True">
+              <Node name="Dockerfile" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.LMSTenantApi PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.docker-compose PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/akshayhiranwal/Akshay/Skillikz/LMS/LMSTenantAPI/Data/Management/ContextFactory.cs" relfile="Data/Management/ContextFactory.cs" line="65" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
